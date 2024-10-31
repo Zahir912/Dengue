@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cargar Paciente</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/8968/8968116.png">
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="cargar">
+        <form action="{{ url_for('cargar') }}" method="post">
+            <h1>INGRESE LOS DATOS DEL PACIENTE</h1>
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" placeholder="Escriba el nombre" required>
+            <label for="telefono">Telefono</label>
+            <input type="text" name="telefono" placeholder="Escriba el número de telefono" required>
+            <label for="correo">Correo electronico</label>
+            <input type="email" name="correo" placeholder="Escriba el correo electronico" required>
+            <label for="grupo">Grupo</label>
+            <select name="grupo" required>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+            </select>
+            <label for="localidad">Localidad</label>
+            <input type="text" name="localidad" placeholder="Escriba la localidad" required>
+            <label for="contraseña">Contraseña</label>
+            <input type="password" name="contraseña" placeholder="Escriba la contraseña" required>
+            <button type="submit" class="btn-submit">CARGAR PACIENTE</button>
+            <a href="{{ url_for('data') }}" class="btn-volver">VOLVER</a>
+        </form>
+    </div>
+</body>
+</html>

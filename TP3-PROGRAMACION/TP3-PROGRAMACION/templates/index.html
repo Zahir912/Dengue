@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/8968/8968116.png">
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>DATOS DE LOS USUARIOS</h1>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Telefono</th>
+                        <th>Correo electronico</th>
+                        <th>Grupo</th>
+                        <th>Localidad</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for cliente in clientes %}
+                    <tr>
+                        <td>{{ cliente[0] }}</td>
+                        <td>{{ cliente[1] }}</td>
+                        <td>{{ cliente[2] }}</td>
+                        <td>{{ cliente[3] }}</td>
+                        <td>{{ cliente[4] }}</td>
+                        <td>
+                            <a href="{{ url_for('edit', correo=cliente[2]) }}" class="btn-editar">EDITAR</a>
+                            <a href="{{ url_for('delete', correo=cliente[2]) }}" class="btn-eliminar" onclick="return confirm('¿Estás seguro de que deseas eliminar este usuario?');">ELIMINAR</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="button-container">
+            <a href="{{ url_for('cargar') }}" class="btn-cargar">CARGAR PACIENTE</a>
+        </div>
+        <div class="logout-container">
+            <a href="{{ url_for('logout') }}" class="btn-logout">LOGOUT</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editar</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/8968/8968116.png">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+
+<body>
+  <div class="edit">
+    <form action="{{ url_for('update_contact', correo=contact[2]) }}" method="post">
+      <h1>MODIFIQUE ALGUN CAMPO</h1>
+      <label for="name">Nombre</label>
+      <input type="text" name="nombre" value="{{ contact[0] }}" placeholder="Escriba el nuevo nombre">
+      <label for="number">Telefono</label>
+      <input type="text" name="telefono" value="{{ contact[1] }}" placeholder="Escriba el nuevo número de telefono">
+      <label for="email">Correo electronico</label>
+      <input type="text" name="correo" value="{{ contact[2] }}" placeholder="Escriba el nuevo correo electronico">
+      <label for="group">Grupo</label>
+      <select id="opciones" name="grupo">
+        <option value="A" {% if contact[3] == 'A' %}selected{% endif %}>A</option>
+        <option value="B" {% if contact[3] == 'B' %}selected{% endif %}>B</option>
+        <option value="C" {% if contact[3] == 'C' %}selected{% endif %}>C</option>
+      </select>
+      <label for="location">Localidad</label>
+      <input type="text" name="localidad" value="{{ contact[4] }}" placeholder="Escriba la nueva localidad">
+      <input type="submit" class="editar-button" value="EDITAR">
+      <a href="/data">VOLVER</a>
+    </form>
+  </div>
+</body>
+
+</html>
